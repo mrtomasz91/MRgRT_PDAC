@@ -56,6 +56,8 @@ if(numel(FeatVals)>3)
 Feature_Values(k,i,:)=FeatVals;
 end
 
+
+
 %End result is the matrix Feature_Values including all features for all
 %patients and timepoints for further analysis
 clear Data ROI px_tum ROI_erode roi_wholebody FeatVals roi_kidney
@@ -63,3 +65,8 @@ end
 % Feature_Values(i,:,:)=FeatValTemp;
 % clear mirada
 end
+
+%Histogram feature ratios last/first fraction, as used in the manuscript
+RatiosHistogram=Feature_Values(6,:,1:11)./Feature_Values(2,:,1:11);
+%Texture feature ratios
+RatiosTexture=Feature_Values(6,:,1:11)./Feature_Values(2,:,90:151);
